@@ -1,0 +1,72 @@
+.container-fluid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.back {
+    margin-top: 7px;
+    display: flex;
+}
+
+.back a img {
+    margin-right: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    height: 30px;
+    display: block;
+}
+
+.empty {
+    width: 15px;
+    height: 30px;
+}
+
+.PersonBasicInfo h4 {margin: 10px 0;}
+
+.PersonBasicInfo {
+    background-color: black;
+    width: 25%;
+    padding: 10px;
+    min-height: 100vh;
+    color: white;
+}
+
+.PersonBasicInfo img {
+    width: 100%;
+    /* border: 5px solid #007BFF; */
+}
+
+.PersonBioPro {
+    width: 75%;
+    padding: 20px 50px;
+}
+
+.bio, .projects {
+    /* border-top: 2px solid black; */
+    padding-top: 10px;
+    margin-top: 30px;
+}
+
+.PersonBioPro h3 {
+    border-left: 3px solid #007BFF;
+    padding-left: 15px;
+}
+
+ul {
+    margin-left: 0;
+    padding-left: 15px;
+}
+
+.social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    margin-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.social a img {
+    width: 40px;
+}

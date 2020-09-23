@@ -1,0 +1,140 @@
+.container-fluid {
+    display: flex;
+    justify-content: space-between;
+}
+.back {
+    margin-top: 7px;
+    display: flex;
+}
+
+.back img {
+    margin-right: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    height: 30px;
+    display: block;
+}
+
+.empty{ width: 15px; height: 30px;}
+
+.container {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ProjectTitle {
+    margin-top: 20px;
+    min-height: 200px;
+    border-top: 0.5px solid gray;
+    border-bottom: 0.5px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.ProjectTitle img {
+    height: 100%;
+}
+
+.MainRight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-left: 50px;
+}
+
+.personTitle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.personTitle img {
+    height: 100%;
+}
+.personTitle h4 {
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 50px;
+}
+
+.personTitle div {
+    margin-top: 10px;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #007BFF;
+    margin-right: 60px;
+    transition: 0.5s;
+}
+.personTitle a {
+    transition: 0.5s;
+    color: black;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.personTitle div:hover {
+    transition: 0.5s;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.349);
+}
+
+.Content h4{
+    border-left: 3px solid #007BFF;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 50px;
+}
+
+
+
+
+
+
+
+
+@media (max-width: 1200px) {
+    .personTitle div{
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .personTitle div{
+        min-width: 130px;
+    }
+    .personTitle a{
+        height: 50px;
+    }
+    
+    .personTitle h4 {
+        font-size: .9rem;
+        margin-right: 0;
+    }
+}
+@media (max-width: 800px) {
+    .ProjectTitle {
+        flex-direction: column;
+        min-height: 300px;
+        align-items: center;
+        text-align: center;
+        border: 0px;
+    }
+    h1 {margin: 10px;}
+    .MainRight {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .container-fluid {
+        flex-direction: column;
+    }
+}
