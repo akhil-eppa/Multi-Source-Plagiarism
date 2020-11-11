@@ -22,7 +22,8 @@ class FuncDefVisitor(c_ast.NodeVisitor):
 
 
 def show_func_defs(c_code):
-    ast = parse_file(c_code, use_cpp=True, cpp_args=r"-Iutils/fake_libc_include")
+    ast = parse_file(c_code, use_cpp=True, cpp_args=[r"-Ifake_headers", r"-nostdinc"])
+    # ast = parse_file(c_code)
 
     v = FuncDefVisitor()
     v.visit(ast)
@@ -36,13 +37,14 @@ def get_functions(filename):
     preproc_filename = f"{Path(Path(filename).name).stem}_preproc.c"
     with open(filename) as file:
         x = file.read()
-        x = re.sub("#include", "//#include", x)
+        # x = re.sub("#include", "//#include", x)
         with open(preproc_filename, "w") as preproc:
             preproc.write(x)
 
     decl_to_func = {}
     for decl, body in show_func_defs(preproc_filename):
         decl_to_func[decl] = body
+    Path(preproc_filename).unlink()
     return decl_to_func
 
 

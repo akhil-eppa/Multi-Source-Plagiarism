@@ -26,7 +26,7 @@ def get_vector(path, is_file=True):
     l = len(x)
     if l < 512:
         vec = pipe(x)
-        vec = np.array(vec)
+        vec = np.array(vec)[0]
     else:
         temp = []
         for i in range(512, l, 100):
