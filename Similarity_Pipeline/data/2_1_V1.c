@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+long max(long first, long second)
+{
+    if(first > second)
+        return first;
+        
+    return second;
+}
+long maxAmount(long n, long *arr)
+{
+    if(!n)
+        return 0;
+        
+    if(arr[n])
+        return arr[n];
+        
+    return arr[n] = max(n, maxAmount(n/2, arr) + maxAmount(n/3, arr) + maxAmount(n/4, arr));
+}
+
+int main(void) {
+	// your code goes here
+	long num;
+	while(scanf("%ld", &num) != EOF){
+	    long* arr=(long *)malloc(sizeof(long)*(num+1));
+	    printf("%ld\n",maxAmount(num,arr));
+	}
+	return 0;
+}
