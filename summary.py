@@ -23,4 +23,5 @@ def printSummary(file: str):
     for func, sources in plag_groups.items():
         print(f"{func}:")
         for source in sources:
-            print(f"\t{source[0]}\t:{source[1]}")
+            if source[0] != file:
+                print(f"\t{source[0]}\t:{source[1]}")

@@ -21,16 +21,19 @@ class FuncDefVisitor(c_ast.NodeVisitor):
         z.append(str(node.decl.coord))
 
 
-def show_func_defs(c_code):
-    ast = parse_file(c_code, use_cpp=True, cpp_args=[r"-Ifake_headers", r"-nostdinc"])
-    # ast = parse_file(c_code)
-
-    v = FuncDefVisitor()
-    v.visit(ast)
+def show_func_defs(filename):
+    ast = parse_file(filename, use_cpp=True, cpp_args=[r"-Ifake_headers", r"-nostdinc"])
     generator = c_generator.CGenerator()
     for node in ast.ext:
         if isinstance(node, FuncDef):
             yield generator.visit(node.decl), generator.visit(node.body)
+
+
+def get_parsed_lines(filename):
+    lines = 0
+    for _, body in show_func_defs(filename):
+        lines += len(list(filter(lambda x: x, body.split("\n")))) + 1
+    return lines
 
 
 def get_functions(filename):
@@ -49,5 +52,5 @@ def get_functions(filename):
 
 
 if __name__ == "__main__":
-    a = get_functions("test.c")
+    a = get_parsed_lines("test.c")
     print(a)
