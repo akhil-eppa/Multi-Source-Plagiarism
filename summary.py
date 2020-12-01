@@ -25,3 +25,9 @@ def printSummary(file: str):
         for source in sources:
             if source[0] != file:
                 print(f"\t{source[0]}\t:{source[1]}")
+
+
+if __name__ == "__main__":
+    printSummary("data/1.c")
+    printSummary("data/2_1_V1.c")
+    printSummary("data/3_4_V2.c")
