@@ -19,15 +19,20 @@ def printSummary(file: str):
 
     plag_fraction = plag_lines / get_parsed_lines(file)
     print(f"{file} is estimated to be {plag_fraction*100:.2f}% plagiarised")
-    print("The following possible sources for plagiarism were detected -")
-    for func, sources in plag_groups.items():
-        print(f"{func}:")
-        for source in sources:
-            if source[0] != file:
-                print(f"\t{source[0]}\t:{source[1]}")
+    if plag_fraction > 0.005:
+        print("The following possible sources for plagiarism were detected -")
+        for func, sources in plag_groups.items():
+            print(f"{func}:")
+            for source in sources:
+                if source[0] != file:
+                    print(f"\t{source[0]}\t:{source[1]}")
 
 
 if __name__ == "__main__":
     printSummary("data/1.c")
+    print()
     printSummary("data/2_1_V1.c")
+    print()
     printSummary("data/3_4_V2.c")
+    print()
+    printSummary("data/6.c")

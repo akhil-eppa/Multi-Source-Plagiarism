@@ -1,8 +1,8 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from numpy import unique
-
 import pickle
+
+import matplotlib.pyplot as plt
+import numpy as np
+from numpy import unique
 from sklearn.cluster import DBSCAN
 
 a = pickle.load(open("func_vec_map.pkl", "rb"))
@@ -20,7 +20,7 @@ X = np.array(X)
 # model = MeanShift()
 # model = AgglomerativeClustering(n_clusters=i)
 # model = KMeans(n_clusters=5)
-model = DBSCAN()
+model = DBSCAN(eps=0.7, min_samples=4)
 yhat = model.fit_predict(X)
 clusters = unique(yhat)
 function_clusters = []
@@ -35,6 +35,9 @@ for idx, i in enumerate(function_clusters[1:], 1):
     print(f"Cluster {idx}")
     for j in i:
         print(f"\t{j[0]}\t:\t{j[1]}")
+
+with open("clusters.pkl", "wb") as cluster:
+    pickle.dump(function_clusters, cluster)
 
 # for cluster in clusters:
 #     # get row indexes for samples with this cluster
